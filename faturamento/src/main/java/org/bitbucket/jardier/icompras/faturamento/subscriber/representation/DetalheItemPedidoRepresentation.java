@@ -1,0 +1,13 @@
+package org.bitbucket.jardier.icompras.faturamento.subscriber.representation;
+
+import java.math.BigDecimal;
+
+public record DetalheItemPedidoRepresentation(
+        Long codigoProduto,
+        String nome,
+        Integer quantidade,
+        BigDecimal valorUnitario
+) {
+
+
+}

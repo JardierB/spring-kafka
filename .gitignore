@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 icompras-servicos/database/data/
+icompras-servicos/bucket/docs/
