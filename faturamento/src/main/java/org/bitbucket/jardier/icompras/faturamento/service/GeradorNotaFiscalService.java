@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.bitbucket.jardier.icompras.faturamento.bucket.BucketFile;
 import org.bitbucket.jardier.icompras.faturamento.bucket.BucketService;
 import org.bitbucket.jardier.icompras.faturamento.modelo.Pedido;
+import org.bitbucket.jardier.icompras.faturamento.publisher.FaturamentoPublisher;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ public class GeradorNotaFiscalService {
 
     private final NotaFsicalService service;
     private final BucketService bucketService;
+    private final FaturamentoPublisher publisher;
 
     public void gerar(Pedido pedido) {
         log.info("Gerando nota fiscal para o pedido {}", pedido.codigo());
@@ -28,6 +30,10 @@ public class GeradorNotaFiscalService {
                     MediaType.APPLICATION_PDF, byteArray.length);
 
             bucketService.upload(file);
+
+            String url = bucketService.getUrl(nomeArquivo);
+            publisher.publicar(pedido,url);
+
             log.info("Nota fiscal gerada com sucesso!. Número: {}", nomeArquivo);
 
         } catch (Exception e) {
