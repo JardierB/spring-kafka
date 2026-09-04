@@ -1,14 +1,18 @@
 package org.bitbucket.jardier.icompras.faturamento.modelo;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
 @Builder
-public record ItemPedido(Long codigoProduto, String nome, Integer quantidade, BigDecimal valorUnitario) {
+@Getter
+public class ItemPedido {
 
-//    public BigDecimal getTotal() {
-//        return BigDecimal.valueOf(this.quantidade).multiply(this.valorUnitario);
-//    }
+    private Long codigoProduto;
+    private String nome;
+    private Integer quantidade;
+    private BigDecimal valorUnitario;
+    private BigDecimal total;
 
 }

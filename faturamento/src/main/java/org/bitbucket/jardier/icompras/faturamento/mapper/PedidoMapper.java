@@ -45,6 +45,7 @@ public class PedidoMapper {
                 .nome(representation.nome())
                 .quantidade(representation.quantidade())
                 .valorUnitario(representation.valorUnitario())
+                .total(representation.total())
                 .build();
 
     }
