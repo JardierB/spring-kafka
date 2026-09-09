@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AtualizacaoStatusPedidoService {
@@ -19,8 +21,8 @@ public class AtualizacaoStatusPedidoService {
 
         repository.findById(codigo).ifPresent(pedido -> {
             pedido.setStatus(statusPedido);
-            pedido.setUrlNf(urlNotaFiscal);
-            pedido.setCodigoRastreio(rastreio);
+            Optional.ofNullable(urlNotaFiscal).ifPresent(pedido::setUrlNf);
+            Optional.ofNullable(rastreio).ifPresent(pedido::setCodigoRastreio);
         });
 
 
