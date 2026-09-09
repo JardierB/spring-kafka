@@ -22,6 +22,8 @@ public interface DetalhePedidoMapper {
     @Mapping(source = "total", target = "total")
     @Mapping(source = "status", target = "status")
     @Mapping(source = "itens", target = "itens")
+    @Mapping(source = "codigoRastreio", target = "codigoRatreio")
+    @Mapping(source = "urlNf", target = "urlNotaFiscal")
     DetalhePedidoRepresentation map(Pedido pedido);
 
 }

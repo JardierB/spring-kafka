@@ -21,9 +21,10 @@ public class SpringConfig {
         mapper.registerModules(new Jdk8Module());
         mapper.registerModules(new JavaTimeModule());
 
-        mapper.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         mapper.configure(DeserializationFeature.FAIL_ON_UNEXPECTED_VIEW_PROPERTIES, false);
+
 
 
         return mapper;
