@@ -23,7 +23,7 @@ public class PedidoPagoSubscriber {
     @KafkaListener(groupId = "icompras-faturamento",
     topics = "${icompras.config.kafka.topics.pedidos-pagos}")
     public void listen(String json) {
-        log.info("Recebendo pedidopara faturamento {}", json);
+        log.info("Recebendo pedido para faturamento {}", json);
         var representation = mapper.readValue(json, DetalhePedidoRepresentation.class);
         Pedido pedido = pedidoMapper.map(representation);
         service.gerar(pedido);
