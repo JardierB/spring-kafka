@@ -24,5 +24,8 @@ public class Produto {
 
     @Column(name = "valor_unitario", precision = 16, scale = 2, nullable = false)
     private BigDecimal valorUnitario;
+
+    @Column(name = "ativo")
+    private boolean ativo = true;
 }
 

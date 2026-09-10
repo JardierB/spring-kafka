@@ -20,5 +20,9 @@ public class ProdutoService {
         return repository.findById(codigo);
     }
 
+    public void deletar(Produto produto) {
+        produto.setAtivo(false);
+        repository.save(produto);
+    }
 }
 

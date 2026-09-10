@@ -8,6 +8,10 @@ public record ClienteRepresentation(
         String numero,
         String bairro,
         String email,
-        String telefone
+        String telefone,
+        boolean ativo
 ) {
+    public boolean isInativo() {
+        return !ativo;
+    }
 }

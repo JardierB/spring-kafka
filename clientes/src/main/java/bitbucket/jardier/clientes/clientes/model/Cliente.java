@@ -2,6 +2,7 @@ package bitbucket.jardier.clientes.clientes.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -37,4 +38,7 @@ public class Cliente {
 
     @Column(name = "telefone", length = 20)
     private String telefone;
+
+    @Column(name = "ativo")
+    private boolean ativo = true;
 }
